@@ -1,3 +1,8 @@
+/**
+ * Fetches starships data from an API endpoint.
+ * @returns {Promise<Array>} A promise that resolves to an array of starship objects.
+ * @throws {Error} If the API request fails or returns a non-200 status code.
+ */
 export const fetchGetStarships = async () => {
   try {
     const response = await fetch(
