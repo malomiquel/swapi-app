@@ -1,3 +1,8 @@
+/**
+ * Fetches a species by its ID from an API
+ * @param {string} id - The unique identifier of the species to fetch
+ * @returns {Promise<Object>} A promise that resolves to the species data or rejects with an error
+ */
 export const fetchGetSpecie = async (id: string) => {
   try {
     const response = await fetch(
