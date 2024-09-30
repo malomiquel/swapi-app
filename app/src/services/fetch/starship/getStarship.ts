@@ -1,3 +1,8 @@
+/**
+ * Fetches a starship by its ID from an external API
+ * @param {string} id - The unique identifier of the starship to fetch
+ * @returns {Promise<Object>} A promise that resolves to the starship object if found, or rejects with an error
+ */
 export const fetchGetStarship = async (id: string) => {
   try {
     const response = await fetch(
