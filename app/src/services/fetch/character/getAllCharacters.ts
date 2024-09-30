@@ -1,3 +1,8 @@
+/**
+ * Fetches character data from an external API
+ * @returns {Promise<Array>} A promise that resolves to an array of character objects
+ * @throws {Error} If the API request fails or returns a non-200 status code
+ */
 export const fetchGetCharacters = async () => {
   try {
     const response = await fetch(
