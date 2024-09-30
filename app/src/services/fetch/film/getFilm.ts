@@ -1,3 +1,8 @@
+/**
+ * Fetches film data from an API based on the provided ID.
+ * @param {string} id - The unique identifier of the film to fetch.
+ * @returns {Promise<Object>} A promise that resolves to the film data object or rejects with an error.
+ */
 export const fetchGetFilm = async (id: string) => {
   try {
     const response = await fetch(
