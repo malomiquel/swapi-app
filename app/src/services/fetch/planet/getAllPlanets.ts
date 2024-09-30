@@ -1,3 +1,8 @@
+/**
+ * Fetches all planets from the API
+ * @returns {Promise<Array>} A promise that resolves to an array of planet objects
+ * @throws {Error} If the API request fails or returns a non-200 status code
+ */
 export const fetchGetPlanets = async () => {
   try {
     const response = await fetch(
