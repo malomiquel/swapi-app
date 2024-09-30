@@ -3,6 +3,15 @@ import { Vehicle } from "@/redux/slices/vehiclesSlice";
 import DetailsPage from "@/components/detailsPage";
 import { CardDescription, CardTitle } from "@/components/ui/card";
 
+/**
+ * Renders a detailed view of a vehicle using the DetailsPage component
+ * @returns {React.ReactElement} A React component displaying detailed information about a vehicle
+ */
+/**
+ * Renders the header section of a vehicle card with detailed information
+ * @param {Object} vehicle - The vehicle object containing all the properties to be displayed
+ * @returns {JSX.Element} A React fragment containing the formatted vehicle information
+ */
 const VehicleDetails = () => {
   return (
     <DetailsPage<Vehicle>
@@ -28,6 +37,11 @@ const VehicleDetails = () => {
           </div>
         </>
       )}
+      /**
+       * Retrieves film resources data for a given vehicle.
+       * @param {Object} vehicle - The vehicle object containing film data.
+       * @returns {Object} An object with a 'films' property containing an array of film resources.
+       */
       getResourcesData={(vehicle) => ({
         films: vehicle?.films || []
       })}
