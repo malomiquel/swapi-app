@@ -21,6 +21,10 @@ export interface Vehicle {
   url: string;
 }
 
+/**
+ * Asynchronously fetches vehicles using Redux Toolkit's createAsyncThunk
+ * @returns {Promise<Vehicle[]>} A promise that resolves to an array of Vehicle objects
+ */
 const getVehicles = createAsyncThunk("vehicles/getVehicles", async () => {
   const response = await fetchGetVehicles();
   return response as Vehicle[];
@@ -36,14 +40,38 @@ const initialState: {
   error: null,
 }
 
+/**
+ * Configures extra reducers for handling the getVehicles async thunk
+ * @param {Object} builder - The builder object for adding case reducers
+ * @returns {void} This function does not return a value
+ */
 export const vehicleSlice = createSlice({
   name: "vehicles",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
+    /**
+     * Handles the pending state of the getVehicles action in the Redux toolkit slice
+     * @param {Object} state - The current state of the slice
+     /**
+      * Handles the fulfilled state of the getVehicles async thunk
+      * @param {object} state - The current state of the Redux store
+      * @param {object} action - The action object containing the payload
+      * @param {Array} action.payload - The array of vehicles retrieved from the API
+      * @returns {void} This reducer doesn't return anything, it mutates the state directly
+      */
+     * @returns {void} This case reducer doesn't return anything, it mutates the state directly
+     */
     builder.addCase(getVehicles.pending, (state) => {
       state.loading = true;
     });
+    /**
+     * Handles the rejected state of the getVehicles async thunk
+     * @param {object} state - The current state of the Redux store
+     * @param {object} action - The rejected action object
+     * @param {Error} action.error - The error object from the rejected action
+     * @returns {void} This reducer doesn't return anything, it mutates the state directly
+     */
     builder.addCase(getVehicles.fulfilled, (state, { payload }) => {
       state.loading = false;
       state.vehicles = payload
