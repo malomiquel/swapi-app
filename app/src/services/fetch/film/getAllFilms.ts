@@ -1,3 +1,8 @@
+/**
+ * Fetches all films from the API asynchronously
+ * @returns {Promise<Array>} A promise that resolves to an array of film objects
+ * @throws {Error} If the API request fails or returns a non-200 status code
+ */
 export const fetchGetFilms = async () => {
   try {
     const response = await fetch(
